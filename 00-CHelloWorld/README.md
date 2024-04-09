@@ -44,7 +44,7 @@ Después de leer el enunciado, puedo anticipar que el objetivo del trabajo prác
 ## Resultados de la Prueba del Compilador
 - **Compilador Seleccionado:** GCC (GNU Compiler Collection)
 - **Versión del Compilador:** 9.2.0
-- **Versión de C Compilada:** C11
+- **Versión de C Compilada:** C18
 - **Resultado de la Prueba:** El programa `hello.c` fue compilado con éxito y ejecutado sin errores.
 - **Salida Esperada del Programa:** "Hello, World!"
 - **Verificación de la Salida:** La salida del programa fue verificada y coincidió con la esperada.
