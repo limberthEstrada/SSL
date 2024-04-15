@@ -48,4 +48,4 @@ Después de leer el enunciado, puedo anticipar que el objetivo del trabajo prác
 - **Resultado de la Prueba:** El programa `hello.c` fue compilado con éxito y ejecutado sin errores.
 - **Salida Esperada del Programa:** "Hello, World!"
 - **Verificación de la Salida:** La salida del programa fue verificada y coincidió con la esperada.
-- **Verificación de la Salida Redirigida a `output.txt`:** Se verificó que el contenido del archivo `output.txt` coincidiera con la salida esperada.
+- **Verificación de la Salida Redirigida a `output.txt`:** Se verificó que el contenido del archivo `output.txt` coincidiera con la salida esperada. Para realizar la ejecución del programa hello.c con la salida redirigida a un archivo output.txt desde la consola, utilicé el operador '>'
