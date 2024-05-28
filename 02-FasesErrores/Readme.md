@@ -2,8 +2,6 @@
 
 ### [Preprocesamiento]
 - **-E:** Ejecuta solo la fase de preprocesamiento y muestra el resultado en la salida estándar.
-- **-P:** Similar a -E, pero no genera líneas de código vacías y combina líneas de múltiples directivas #define.
-- **-C:** Conserva los comentarios durante el preprocesamiento.
 
 ### [Compilación]
 - **-S:** Ejecuta el preprocesamiento y la compilación, generando el código ensamblador.
@@ -11,7 +9,7 @@
 ### [Ensamblado]
 - **-c:** Ejecuta el preprocesamiento, compilación y el ensamblado, generando el código objeto.
 
-- **as:** Ensambla directamente el archivo de ensamblador a código objeto, la función (-c) realizaba más pasos.
+Referencia: https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html
 
 ## Paso 1 - [Preprocesador]
 
@@ -27,6 +25,10 @@ Esta variante es muy similar al hello2.c, solo que esta vez tiene una definició
 
 ### d)
 Para empezar la primera línea se trata de una declaración de una función y también de una función que devuelve un entero y toma al menos un parámetro. Sobre el primer parámetro se trata de un puntero a un caracter constante llamado 's'. El `restrict` es una palabra clave que le indica al compilador que el puntero 's' es el único puntero que se utilizará para acceder al objeto al que apunta. El '...' indica que la función puede tener un número indeterminado de argumentos después del primer argumento, que se utilizan para proporcionar los valores a imprimir según el formato especificado en el primer argumento.
+
+Referencias:
+- El lenguaje de programación de Kernighan & Ritchie, Capitulo 7: Entrada y Salida (Sección 7.2 - Salida con formato - printf), Capitulo 5: Apuntadores y arreglos (Sección 5.5 - Apuntadores a caracteres, y funciones), 
+- N1570 - ISO/IEC 9899:201x - C11 (Sección 6.7.3.1  Formal deﬁnition of restrict)
 
 ### e)
 `hello3.i` es el resultado de la primera fase de la compilación, conocida como la fase de preprocesamiento. El preprocesador realiza las siguientes tareas:
@@ -48,12 +50,15 @@ Ya fueron corregidos los errores y se pudo generar el archivo `hello4.s`. Y en s
 Utilicé este comando: `gcc -S hello4.c -o hello4.s`
 
 ### c)
-El lenguaje de ensamblador es un lenguaje de bajo nivel que proporciona un mnemónico para cada instrucción de maquina disponible en una arquitectura de computadora especifica. Se utiliza a menudo para la programación de sistemas embebidos, controladores de dispositivos y para optimizar el rendimiento en áreas criticas de una aplicación determinada. 
+Es un lenguaje de programación de bajo nivel que se utiliza para programar microprocesadores. Es una representación simbolica del código de máquina, lo que significa que es la forma más legible para un programador de entender las instrucciones especificas de cada arquitectura de procesador. Fue usado principalmente en los inicios del desarrollo de software, cuando aún no se contaba con potentes lenguajes de alto nivel y los recursos eran limitados. Actualmente se utiliza con frecuencia en ambientes académicos y de investigación, especialmente cuando se requiere la manipulación directa de hardware, alto rendimiento, o un uso de recursos controlado y reducido. También es utilizado en el desarrollo de controladores de dispositivo (en inglés, device drivers) y en el desarrollo de sistemas operativos, debido a la necesidad del acceso directo a las instrucciones de la máquina.
+
 El objetivo del código es imprimir en la salida estándar la cadena "La respuesta es 42" utilizando la función `printf`. El valor 42 se asigna a una variable "i" y luego se formatea junto con la cadena "La respuesta es %d \n"
+
+Referencia: https://es.wikipedia.org/wiki/Lenguaje_ensamblador
 
 ### d)
 Quedó ensamblado, pero no es posible abrir el archivo objeto para analizarlo porque en su contenido hay texto binario.
-Utilicé este comando: `as -o hello4.o hello4.s`
+Utilicé este comando: `gcc -c hello4.s -o hello4.o`
 
 ## Paso 3 - [Vinculación]
 
@@ -85,17 +90,27 @@ Arroja warning: implicit declaration of function 'printf'; incompatible implicit
 - ii) 
 Es una declaración que especifica el nombre de la función, los tipos de los parámetros y el tipo de retorno. Se puede generar un prototipo incluyendo el header file o escribiendo el prototipo manualmente. Permite al compilador verificar que las llamadas a la función sean correctas.
 
+Referencia: El lenguaje de programación de Kernighan & Ritchie, Capitulo 1 (Sección 1.7 Funciones)
+
 - iii) 
 La declaración implícita de una función es la característica del lenguaje C que ocurre cuando se llama a una función sin haberla declarado previamente. Es cuando se usa una función sin proveer previamente su prototipo. En este caso, el compilador asume un prototipo basado en la llamada a la función. Puede llevar a problemas si la suposición era incorrecta.
+
+Referencia: https://www.ibm.com/docs/es/i/7.5?topic=definitions-function-declarations
 
 - iv) 
 La especificación C indica que se debe proveer una declaración o una definición de una función antes de usarla. De no hacerlo, el comportamiento será indefinido. Muchos compiladores permiten el uso de funciones sin una declaración previa.
 
+Referencia: N1570 - ISO/IEC 9899:201x - C11 (Sección 6.5.2.2 Function calls, P6)
+
 - v) 
-La mayoría de las implementaciones de C permiten llamadas a funciones sin prototipo, generando un prototipo implícito, pero emiten una advertencia para alertar a un programador de un posible error.
+Las primeras implementaciones de C permitían llamadas a funciones sin prototipo, generando un prototipo implícito; actualmente para mantener compatibilidad con versiones anteriores se emite una advertencia para alertar a un programador de un posible error.
+
+Referencia: ISO/IEC 9899:1989 (Sección 3.3.2.2)
 
 - vi) 
 Se trata de una función que está integrada directamente en el compilador. El compilador conoce su prototipo sin necesidad de incluir un encabezado. Para este caso `printf` no es una función de este tipo, sino es una función de biblioteca.
+
+Referencia: https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html
 
 - vii) 
 GCC se comporta de esta manera para cumplir con la especificación del lenguaje C y al mismo tiempo proporcionar una advertencia al programador. También se emiten warnings para alentar al programador a mejorar el código. No va directamente contra la especificación. El código de `hello7.c` funciona porque GCC permite llamadas a `printf` sin prototipo como una extensión, generando/asumiendo un prototipo implícito. La razón por la que GCC permite llamadas a funciones sin declaración previa es para mantener compatibilidad con código antiguo de C. La especificación de C dice que llamar a una función sin declaración previa resulta en un comportamiento indefinido. "Indefinido" significa que la especificación no define qué debe pasar en este caso: podría funcionar, podría fallar, podría hacer cualquier cosa. GCC no viola la especificación, sino que provee una extensión documentada.
@@ -109,6 +124,8 @@ Listo, ya generados.
 Utilicé el comando: `gcc -c studio1.c hello8.c`
 Utilicé el comando: `gcc studio1.o hello8.o -o programa`
 
+Referencia: https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html#Overall-Options
+
 ### c)
 Ya sea eliminando o agregando argumentos, se produciría errores de compilación. Esto se debe a qué no hay un contrato establecido entre las unidades de traducción `hello8.c` y `stdio1.c` sobre la interfaz de la función `prontf`. El compilador de C asumirá que `prontf` toma cualquier número de argumentos de cualquier tipo (porque no tiene información sobre su interfaz real) y permitirá que el código compile, y eso producirá un error porque la definición real de `prontf` no coincide con la asumida. Ya sea que agreguemos o eliminemos, siempre fallará en el paso de enlace porque la llamada no coincide con la definición.
 
@@ -119,6 +136,8 @@ Ya sea eliminando o agregando argumentos, se produciría errores de compilación
 - Reutilización y modularidad: Al tenerlo separa    do en un archivo encabezado, puede ser incluido y utilizado en multiples archivos fuente.
 - Prevención de declaraciones implícitas: Para evitar comportamientos inesperados.
 - Ocultamiento de información: Al tenerlo todo en un archivo encabezado, el cliente solo necesita saber cómo llamar a las funciones, no como funcionan internamente.
+
+Referencia: Mencionado en clase
 
 ## Crédito extra:
 
@@ -138,34 +157,5 @@ Sus desventajas son:
 - Tamaño del archivo ejecutable: Si se utilizan muchas bibliotecas, el tamaño del archivo ejecutable puede aumentar.
 - Posibles problemas de compatibilidad: Las bibliotecas pueden tener diferentes versiones entre si, lo que puede causar problemas de compatibilidad en programas que las utilizan.
 
-Biblioteca studio:
-- 1) Crear el archivo de encabezado "studio.h" que contenga la declaración de las funciones que exportará la biblioteca.
-```c
-#ifndef STUDIO_H
-#define STUDIO_H
+Referencia: https://es.wikipedia.org/wiki/Biblioteca_(informática)
 
-void prontf(const char* s, int i);
-
-#endif
-```
-- 2) Crearemos el archivo studio.c con la implementación de prontf
-```c
-#include <stdio.h>
-#include "studio.h"
-
-void prontf(const char* s, int i) {
-    printf("La respuesta es %d\n", i);
-}
-```
-- 3) Para compilar la biblioteca, ejecutaremos el siguiente comando
-> gcc -c studio.c
-- 4) Finalmente, para utilizar la biblioteca desde otro programa, necesitamos vincular el archivo objeto con el programa principal.
-```c
-#include "studio.h"
-
-int main() {
-    int i = 42;
-    prontf("La respuesta es %d\n", i);
-    return 0;
-}
-```
