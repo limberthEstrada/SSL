@@ -1,0 +1,15 @@
+<svg width="900" height="300" viewBox="0 0 875 300" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0, 20)">
+    <text x="100" y="270" text-anchor="middle" class="label">1</text>
+    <text x="175" y="270" text-anchor="middle" class="label">2</text>
+    <text x="250" y="270" text-anchor="middle" class="label">3</text>
+    <text x="325" y="270" text-anchor="middle" class="label">4</text>
+    <text x="400" y="270" text-anchor="middle" class="label">5</text>
+    <text x="475" y="270" text-anchor="middle" class="label">6</text>
+    <text x="550" y="270" text-anchor="middle" class="label">7</text>
+    <text x="625" y="270" text-anchor="middle" class="label">8</text>
+    <text x="700" y="270" text-anchor="middle" class="label">9</text>
+    <text x="775" y="270" text-anchor="middle" class="label">10</text>
+  </g>
+  <text x="50%" y="300" text-anchor="middle" class="label">contador</text>
+</svg>

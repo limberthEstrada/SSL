@@ -1,0 +1,51 @@
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bar { fill: steelblue; stroke: #000; stroke-width: 1; rx: 5; }
+    .axis { font-family: Arial, sans-serif; font-size: 12px; }
+    .axis line { stroke: black; }
+    .axis path { stroke: black; }
+    .x-axis text { text-anchor: middle; }
+    .y-axis text { text-anchor: end; }
+  </style>
+  
+  <g transform="translate(60, 250)">
+    <g class="x-axis" transform="translate(0, 0)">
+      <line x1="0" y1="0" x2="400" y2="0"/>
+      <g transform="translate(50, 20)">
+        <text>Categoría A</text>
+      </g>
+      <g transform="translate(200, 20)">
+        <text>Categoría B</text>
+      </g>
+      <g transform="translate(350, 20)">
+        <text>Categoría C</text>
+      </g>
+    </g>
+    
+    <g class="y-axis" transform="translate(0, 0)">
+      <line x1="0" y1="0" x2="0" y2="-200"/>
+      <g transform="translate(-10, -200)">
+        <text dy="0.32em">100</text>
+      </g>
+      <g transform="translate(-10, -150)">
+        <text dy="0.32em">75</text>
+      </g>
+      <g transform="translate(-10, -100)">
+        <text dy="0.32em">50</text>
+      </g>
+      <g transform="translate(-10, -50)">
+        <text dy="0.32em">25</text>
+      </g>
+      <g transform="translate(-10, 0)">
+        <text dy="0.32em">0</text>
+      </g>
+      <text transform="rotate(-90)" x="-120" y="-30" text-anchor="middle">Valores</text>
+    </g>
+    
+    <rect class="bar" x="20" y="-160" width="100" height="160"/>
+    <rect class="bar" x="170" y="-120" width="100" height="120"/>
+    <rect class="bar" x="320" y="-80" width="100" height="80"/>
+  </g>
+  
+  <text x="250" y="30" font-size="20" text-anchor="middle">Gráfico de Barras</text>
+</svg>

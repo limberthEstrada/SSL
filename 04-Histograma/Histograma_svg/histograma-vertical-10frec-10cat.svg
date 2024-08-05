@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bar { stroke: #333; stroke-width: 1; }
+    .axis { stroke: #333; stroke-width: 1; }
+    .label { font-family: Arial, sans-serif; font-size: 12px; }
+    .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; }
+  </style>
+
+  <title>Ventas por Producto</title>
+
+  <!-- Título del gráfico -->
+  <text x="425" y="30" text-anchor="middle" class="title">Histograma - Vertical</text>
+
+  <!-- +20(eje Y) -->
+  <text x="45" y="50" text-anchor="end" class="label">10</text>
+  <text x="45" y="70" text-anchor="end" class="label">9</text>
+  <text x="45" y="90" text-anchor="end" class="label">8</text>
+  <text x="45" y="110" text-anchor="end" class="label">7</text>
+  <text x="45" y="130" text-anchor="end" class="label">6</text>
+  <text x="45" y="150" text-anchor="end" class="label">5</text>
+  <text x="45" y="170" text-anchor="end" class="label">4</text>
+  <text x="45" y="190" text-anchor="end" class="label">3</text>
+  <text x="45" y="210" text-anchor="end" class="label">2</text>
+  <text x="45" y="230" text-anchor="end" class="label">1</text>
+  <text x="45" y="250" text-anchor="end" class="label">0</text>
+
+  <!-- Mirando el eje Y, del 50 al 250 hay 200 de diferencia, la mitad es 100, como arranca en 50, en 150
+       quedaria centrado verticalmente -->
+  <text x="25" y="150" text-anchor="middle" transform="rotate(-90 25,150)" class="label">Frecuencia de palabras</text>
+
+  <!-- Eje X -->
+  <line x1="50" y1="250" x2="800" y2="250" class="axis" />
+
+  <!-- Eje Y -->
+  <line x1="50" y1="50" x2="50" y2="250" class="axis" />
+
+  <!-- Barras +20(eje Y) | +75(eje X)-->
+  <rect x="75" y="230" width="50" height="20" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="150" y="210" width="50" height="40" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="225" y="190" width="50" height="60" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="300" y="170" width="50" height="80" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="375" y="150" width="50" height="100" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="450" y="130" width="50" height="120" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="525" y="110" width="50" height="140" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="600" y="90" width="50" height="160" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="675" y="70" width="50" height="180" rx="5" class="bar" fill="#FBBC05" />
+  <rect x="750" y="50" width="50" height="200" rx="5" class="bar" fill="#FBBC05" />
+
+  <!-- Etiquetas de las barras +50Xal inicio +75X +20Y-->
+  <text x="100" y="270" text-anchor="middle" class="label">1</text>
+  <text x="175" y="270" text-anchor="middle" class="label">2</text>
+  <text x="250" y="270" text-anchor="middle" class="label">3</text>
+  <text x="325" y="270" text-anchor="middle" class="label">4</text>
+  <text x="400" y="270" text-anchor="middle" class="label">5</text>
+  <text x="475" y="270" text-anchor="middle" class="label">6</text>
+  <text x="550" y="270" text-anchor="middle" class="label">7</text>
+  <text x="625" y="270" text-anchor="middle" class="label">8</text>
+  <text x="700" y="270" text-anchor="middle" class="label">9</text>
+  <text x="775" y="270" text-anchor="middle" class="label">10</text>
+
+
+  <!-- Etiqueta del eje X -->
+  <!-- 425 porque todo el eje x tiene 750 (25x10 + 50x10), lo divido por 2 y nos da 375. Luego le sumamos 50
+       porque arranca desde ahi y termina quedando 425-->
+  <text x="425" y="290" text-anchor="middle" class="label">Longitud de palabras (en letras)</text>
+</svg>

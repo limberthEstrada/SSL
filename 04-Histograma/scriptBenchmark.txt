@@ -1,0 +1,19 @@
+# Compilar el programa
+Start-Process -NoNewWindow -Wait -FilePath "make" -ArgumentList "clean"
+Start-Process -NoNewWindow -Wait -FilePath "make"
+
+$implementations = @("enum-switch", "goto", "rec", "tabla")
+$files = @("archivo_kb.txt", "archivo_mb.txt", "archivo_gb.txt")
+$inputFolder = "Archivos_benchmark"
+
+foreach ($file in $files) {
+    $filePath = Join-Path -Path $inputFolder -ChildPath $file
+    foreach ($impl in $implementations) {
+        Write-Host "Running $impl with $file"
+        $start = Get-Date
+        Get-Content $filePath | ./main.exe $impl > $null
+        $end = Get-Date
+        $duration = $end - $start
+        Write-Host "$impl with $file took $duration"
+    }
+}

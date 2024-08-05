@@ -1,0 +1,6 @@
+<svg width="300" height="200">
+  <rect x="20" y="150" width="40" height="50" fill="blue" />
+  <rect x="80" y="100" width="40" height="100" fill="green" />
+  <rect x="140" y="70" width="40" height="130" fill="orange" />
+  <rect x="200" y="120" width="40" height="80" fill="red" />
+</svg>

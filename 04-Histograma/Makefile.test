@@ -1,0 +1,53 @@
+# Nombre del compilador
+CC = gcc
+
+# Archivos de entrada
+input1 = textoVacio.txt
+input2 = textoDePrueba.txt
+input3 = textoConCaracteresBlancos.txt
+input4 = textoConCaracteresNoBlancos.txt
+
+# Regla principal
+all: test.exe run_tests
+
+# Regla para compilar el ejecutable
+test.exe: Test.o histograma-1-enum-switch.o histograma-2-goto.o histograma-3-rec.o histograma-x.o
+	$(CC) -o test.exe Test.o histograma-1-enum-switch.o histograma-2-goto.o histograma-3-rec.o histograma-x.o
+
+# Regla para compilar Test.c a Test.o
+Test.o: Test.c histograma.h
+	$(CC) -c Test.c -o Test.o
+
+histograma-1-enum-switch.o: histograma-1-enum-switch.c histograma.h
+	$(CC) -c histograma-1-enum-switch.c -o histograma-1-enum-switch.o
+
+histograma-2-goto.o: histograma-2-goto.c histograma.h
+	$(CC) -c histograma-2-goto.c -o histograma-2-goto.o
+
+histograma-3-rec.o: histograma-3-rec.c histograma.h
+	$(CC) -c histograma-3-rec.c -o histograma-3-rec.o
+
+histograma-x.o: histograma-x.c histograma.h
+	$(CC) -c histograma-x.c -o histograma-x.o
+
+# Regla para ejecutar el programa con los archivos de entrada
+run_tests: test.exe
+	@echo "Ejecutando con $(input1):"
+	./test.exe < $(input1)
+	@echo ""
+	@echo "Ejecutando con $(input2):"
+	./test.exe < $(input2)
+	@echo ""
+	@echo "Ejecutando con $(input3):"
+	./test.exe < $(input3)
+	@echo ""
+	@echo "Ejecutando con $(input4):"
+	./test.exe < $(input4)
+	@echo ""
+
+# Regla para limpiar los archivos generados
+clean:
+	rm -f Test.o test.exe
+
+# Indicamos que 'clean' y 'run_tests' no son nombres de archivos
+.PHONY: all clean run_tests

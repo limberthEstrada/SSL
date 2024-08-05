@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bar { stroke: #333; stroke-width: 1; }
+    .axis { stroke: #333; stroke-width: 1; }
+    .label { font-family: Arial, sans-serif; font-size: 12px; }
+    .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; }
+  </style>
+
+  <title>Ventas por Producto</title>
+
+  <!-- Título del gráfico -->
+  <text x="425" y="30" text-anchor="middle" class="title">Histograma - Vertical</text>
+
+  <!-- +20(eje Y) -->
+  <text x="45" y="250" text-anchor="end" class="label">0</text>
+
+  <!-- Mirando el eje Y, del 50 al 250 hay 200 de diferencia, la mitad es 100, como arranca en 50, en 150
+       quedaria centrado verticalmente -->
+  <text x="25" y="150" text-anchor="middle" transform="rotate(-90 25,150)" class="label">Frecuencia de palabras</text>
+
+  <!-- Eje X -->
+  <line x1="50" y1="250" x2="800" y2="250" class="axis" />
+
+  <!-- Eje Y -->
+  <line x1="50" y1="50" x2="50" y2="250" class="axis" />
+
+  <!-- Barras +20(eje Y) | +75(eje X)-->
+
+  <!-- Etiquetas de las barras +75-->
+
+
+
+  <!-- Etiqueta del eje X -->
+  <!-- 425 porque todo el eje x tiene 750 (25x10 + 50x10), lo divido por 2 y nos da 375. Luego le sumamos 50
+       porque arranca desde ahi y termina quedando 425-->
+  <text x="425" y="290" text-anchor="middle" class="label">Longitud de palabras (en letras)</text>
+</svg>

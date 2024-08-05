@@ -1,0 +1,19 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ejes -->
+  <line x1="50" y1="350" x2="350" y2="350" style="stroke:black"/>
+  <line x1="50" y1="350" x2="50" y2="50" style="stroke:black"/>
+
+  <!-- Barras con bordes redondeados -->
+  <rect width="40" height="80" x="70" y="270" style="fill:blue; stroke:black; stroke-width:1; rx:5"/>
+  <rect width="40" height="120" x="150" y="230" style="fill:red; stroke:black; stroke-width:1; rx:5"/>
+  <rect width="40" height="160" x="230" y="190" style="fill:green; stroke:black; stroke-width:1; rx:5"/>
+
+  <!-- Nombres de los ejes -->
+  <text x="200" y="390" text-anchor="middle" font-family="Verdana" font-size="15">Categorías</text>
+  <text x="10" y="200" text-anchor="middle" font-family="Verdana" font-size="15" transform="rotate(-90,20,200)">Valores</text>
+
+  <!-- Nombres de las categorías -->
+  <text x="90" y="365" text-anchor="middle" font-family="Verdana" font-size="12">Azul</text>
+  <text x="170" y="365" text-anchor="middle" font-family="Verdana" font-size="12">Rojo</text>
+  <text x="250" y="365" text-anchor="middle" font-family="Verdana" font-size="12">Verde</text>
+</svg>

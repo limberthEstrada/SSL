@@ -1,0 +1,14 @@
+digraph StateMachine {
+  rankdir=LR;
+  size="8,5"
+
+  node [shape = circle];
+   
+  OUT -> OUT [label="(c = ' ' or c = \\n or c = \\t) / ε "];
+  OUT -> IN [label="(c ≠ ' ' and c ≠ \\n and c ≠ \\t) / longitud++ "];
+  IN -> IN [label="(c ≠ ' ' and c ≠ \\n and c ≠ \\t) / longitud++ "];
+  IN -> OUT [label="(c = ' ' or c = \\n or c = \\t) / ++palabras[longitud], longitud=0 "];
+
+  OUT [label="OUT"];
+  IN [label="IN"];
+}
