@@ -215,7 +215,7 @@ void dibujarEjeYConEtiquetasVertical(int frecuenciaPalabrasMaxima, int *coordena
 	
 	//Para que no desborde
 	if(frecuenciaPalabrasMaxima < 6) {
-		printf("<text x=\"25\" y=\"50\" transform=\"rotate(-90 25,50)\" class=\"label\">%s</text>\n", data->tituloEjeY);	
+		printf("<text x=\"25\" y=\"50\" text-anchor=\"end\" transform=\"rotate(-90 25,50)\" class=\"label\">%s</text>\n", data->tituloEjeY);	
 	} else {
 		printf("<text x=\"25\" y=\"%d\" text-anchor=\"middle\" transform=\"rotate(-90 25,%d)\" class=\"label\">%s</text>\n", coordenadaYTitulo, coordenadaYTitulo, data->tituloEjeY);
 	}
